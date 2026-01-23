@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/3b1b-style.css' | relative_url }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="{{ '/' | relative_url }}" class="nav-brand">{{ site.title }}</a>
+            <div class="nav-menu">
+                <a href="{{ '/' | relative_url }}" class="nav-item {% if page.url == '/' %}active{% endif %}">Home</a>
+                <a href="{{ '/content/' | relative_url }}" class="nav-item {% if page.url contains '/content' %}active{% endif %}">Content</a>
+                <a href="{{ '/publications/' | relative_url }}" class="nav-item {% if page.url == '/publications/' %}active{% endif %}">Publications</a>
+                <a href="{{ '/projects/' | relative_url }}" class="nav-item {% if page.url == '/projects/' %}active{% endif %}">Projects</a>
+                <a href="{{ '/awards/' | relative_url }}" class="nav-item {% if page.url == '/awards/' %}active{% endif %}">Awards</a>
+                <a href="{{ '/' | relative_url }}#contact" class="nav-item">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        {{ content }}
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="mailto:{{ site.email }}">Email</a>
+                <a href="https://github.com/{{ site.github_username }}" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank">LinkedIn</a>
+            </div>
+            <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript files -->
+    <script src="{{ '/assets/js/contact.js' | relative_url }}"></script>
+    {% if page.url == '/' %}
+    <script src="{{ '/assets/js/slideshow.js' | relative_url }}"></script>
+    {% endif %}
+</body>
+</html>

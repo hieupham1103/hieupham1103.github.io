@@ -1,0 +1,52 @@
+title: Pham Dinh Trung Hieu
+email: phamdinhtrunghieu1103@gmail.com
+description: Academic CV, Research Publications, and Personal Blog
+baseurl: ""
+url: "https://hieupham1103.github.io"
+twitter_username: your-twitter
+github_username: hieupham1103
+linkedin_username: pham-dinh-trung-hieu
+
+# Professional Information
+position: AI Research Enthusiast
+affiliation: Vietnamese-German University (VGU)
+phone: +84984677257
+
+# Pagination for content (videos & posts)
+paginate: 12
+paginate_path: "/content/page:num/"
+
+markdown: kramdown
+theme: jekyll-theme-minimal
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# Collections
+collections:
+  videos:
+    output: true
+    permalink: /content/:slug/
+  sections:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Pham Dinh Trung Hieu"
+  - scope:
+      path: "_videos"
+      type: "videos"
+    values:
+      layout: "post"
+      author: "Pham Dinh Trung Hieu"
