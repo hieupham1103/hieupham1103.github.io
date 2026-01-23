@@ -960,6 +960,9 @@ body {
     border: 1px solid $border-color;
     border-radius: 8px;
     transition: all 0.2s ease;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
 
     &:hover {
         border-color: $accent-color;
@@ -967,8 +970,7 @@ body {
     }
 
     .timeline-logo {
-        display: block;
-        margin-bottom: 15px;
+        flex-shrink: 0;
         transition: opacity 0.2s ease;
 
         &:hover {
@@ -981,6 +983,10 @@ body {
             object-fit: contain;
             border-radius: 8px;
         }
+    }
+
+    .timeline-info {
+        flex: 1;
     }
 
     .timeline-date {
