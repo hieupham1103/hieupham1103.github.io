@@ -1,0 +1,107 @@
+---
+layout: default
+title: Learning Log
+permalink: /content/learning-log/
+---
+
+{% assign learning_logs = site.posts | where_exp: "post", "post.categories contains 'Learning Log'" | sort: 'date' | reverse %}
+{% assign subjects = learning_logs | map: "subject" | compact | uniq | sort %}
+
+<div class="page-header learning-log-header">
+    <h1>Learning Log</h1>
+    <p class="page-description">A study journal for high school, university, lab work, course notes, and research ideas in progress.</p>
+</div>
+
+<div class="content">
+    <section class="learning-log-intro">
+        <h2>Study Notes In Progress</h2>
+        <p>
+            This is where I keep journal-style notes from classes, self-study sessions, and research reading.
+            Entries can be polished essays, short reminders, derivations, problem-solving notes, or questions I want to revisit later.
+        </p>
+    </section>
+
+    {% if learning_logs.size > 0 %}
+    <section class="learning-log-browser" data-learning-log-browser>
+        <div class="learning-log-browser-header">
+            <div>
+                <h2>Browse Notes</h2>
+                <p>Filter by school, university, lab, or subject.</p>
+            </div>
+            <div class="learning-log-count" data-learning-log-count>{{ learning_logs.size }} notes</div>
+        </div>
+
+        <div class="learning-log-filters" aria-label="Learning Log filters">
+            <label class="filter-field search-field">
+                <span>Search</span>
+                <input type="search" placeholder="Search notes, tags, topics..." data-learning-search>
+            </label>
+
+            <label class="filter-field">
+                <span>Track</span>
+                <select data-learning-filter="space">
+                    <option value="all">All tracks</option>
+                    <option value="university">University</option>
+                    <option value="high-school">High School</option>
+                    <option value="lab">Lab</option>
+                    <option value="other">Other</option>
+                </select>
+            </label>
+
+            <label class="filter-field">
+                <span>Subject</span>
+                <select data-learning-filter="subject">
+                    <option value="all">All subjects</option>
+                    {% for subject in subjects %}
+                    {% if subject %}
+                    <option value="{{ subject | slugify }}">{{ subject }}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+            </label>
+
+            <button type="button" class="filter-reset" data-learning-filter-reset>Reset</button>
+        </div>
+
+        <div class="active-filters" data-active-filters>
+            <span>Showing all Learning Log notes</span>
+        </div>
+
+        <div class="content-grid learning-log-grid">
+            {% for item in learning_logs %}
+            {% assign item_space = item.level | default: "Other" %}
+            {% assign item_subject = item.subject | default: "Uncategorized" %}
+            {% capture item_search %}
+                {{ item.title }}
+                {{ item.excerpt | strip_html }}
+                {{ item.tags | join: ' ' }}
+                {{ item.categories | join: ' ' }}
+                {{ item_subject }}
+                {{ item.course }}
+                {{ item.semester }}
+                {{ item.content | strip_html | truncatewords: 80 }}
+            {% endcapture %}
+            <div class="learning-log-item"
+                 data-learning-log-item
+                 data-space="{{ item_space | slugify }}"
+                 data-subject="{{ item_subject | slugify }}"
+                 data-space-label="{{ item_space }}"
+                 data-subject-label="{{ item_subject }}"
+                 data-search="{{ item_search | normalize_whitespace | downcase | escape }}">
+                {% include content-card.html item=item %}
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="empty-state learning-log-empty" data-learning-log-empty hidden>
+            <h3>No notes match these filters</h3>
+            <p>Try another space or subject, or reset the filters.</p>
+        </div>
+    </section>
+    {% else %}
+    <div class="empty-state">
+        <h3>No Learning Log entries yet</h3>
+        <p>Create a post in <code>_posts</code> with <code>categories: [Learning Log, University]</code> to add the first entry.</p>
+    </div>
+    {% endif %}
+</div>

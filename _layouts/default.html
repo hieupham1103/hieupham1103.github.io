@@ -7,14 +7,34 @@
     <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/3b1b-style.css' | relative_url }}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    {% if page.layout == 'post' or page.url contains '/content/learning-log' %}
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    {% endif %}
 </head>
 <body>
+    {% assign is_learning_page = false %}
+    {% if page.url contains '/content/learning-log' or page.categories contains 'Learning Log' %}
+        {% assign is_learning_page = true %}
+    {% endif %}
     <nav class="main-nav">
         <div class="nav-container">
             <a href="{{ '/' | relative_url }}" class="nav-brand">{{ site.title }}</a>
             <div class="nav-menu">
                 <a href="{{ '/' | relative_url }}" class="nav-item {% if page.url == '/' %}active{% endif %}">Home</a>
-                <a href="{{ '/content/' | relative_url }}" class="nav-item {% if page.url contains '/content' %}active{% endif %}">Content</a>
+                <a href="{{ '/content/' | relative_url }}" class="nav-item {% if page.url contains '/content' and is_learning_page == false %}active{% endif %}">Content</a>
+                <a href="{{ '/content/learning-log/' | relative_url }}" class="nav-item {% if is_learning_page %}active{% endif %}">Learning Log</a>
                 <a href="{{ '/publications/' | relative_url }}" class="nav-item {% if page.url == '/publications/' %}active{% endif %}">Publications</a>
                 <a href="{{ '/projects/' | relative_url }}" class="nav-item {% if page.url == '/projects/' %}active{% endif %}">Projects</a>
                 <a href="{{ '/awards/' | relative_url }}" class="nav-item {% if page.url == '/awards/' %}active{% endif %}">Awards</a>
@@ -42,6 +62,12 @@
     <script src="{{ '/assets/js/contact.js' | relative_url }}"></script>
     {% if page.url == '/' %}
     <script src="{{ '/assets/js/slideshow.js' | relative_url }}"></script>
+    {% endif %}
+    {% if page.url == '/content/learning-log/' %}
+    <script src="{{ '/assets/js/learning-log.js' | relative_url }}"></script>
+    {% endif %}
+    {% if page.layout == 'post' %}
+    <script src="{{ '/assets/js/post-toc.js' | relative_url }}"></script>
     {% endif %}
 </body>
 </html>

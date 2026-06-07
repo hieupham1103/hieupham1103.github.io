@@ -12,16 +12,11 @@ position: AI Research Enthusiast
 affiliation: Vietnamese-German University (VGU)
 phone: +84984677257
 
-# Pagination for content (videos & posts)
-paginate: 12
-paginate_path: "/content/page:num/"
-
 markdown: kramdown
 theme: jekyll-theme-minimal
 
 # Plugins
 plugins:
-  - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-feed
 

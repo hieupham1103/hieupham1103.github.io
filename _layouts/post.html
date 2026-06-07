@@ -17,45 +17,52 @@ layout: default
     </div>
 </div>
 
-<article class="content" style="max-width: 900px; margin: 0 auto; padding: 40px;">
-    <div style="background: #ffffff; padding: 40px; border-radius: 12px; border: 1px solid #e2e8f0;">
-        {{ content }}
-    </div>
+<div class="post-layout">
+    <aside class="post-toc" data-post-toc hidden>
+        <div class="post-toc-title">In This Post</div>
+        <nav class="post-toc-nav" data-post-toc-nav aria-label="Post table of contents"></nav>
+    </aside>
 
-    {% if page.tags %}
-    <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #e2e8f0;">
-        <strong style="color: #1a1a1a; margin-right: 15px;">Tags:</strong>
-        {% for tag in page.tags %}
-        <span style="background: #eff6ff; color: #2563eb; padding: 6px 14px; border-radius: 6px; font-size: 0.9em; margin-right: 8px; display: inline-block; margin-bottom: 8px; border: 1px solid #dbeafe;">{{ tag }}</span>
-        {% endfor %}
-    </div>
-    {% endif %}
+    <article class="content post-article">
+        <div class="post-body" data-post-body>
+            {{ content }}
+        </div>
 
-    {% if page.categories %}
-    <div style="margin-top: 20px;">
-        <strong style="color: #1a1a1a; margin-right: 15px;">Categories:</strong>
-        {% for category in page.categories %}
-        <span style="background: #eff6ff; color: #2563eb; padding: 6px 14px; border-radius: 6px; font-size: 0.9em; margin-right: 8px; display: inline-block; border: 1px solid #dbeafe;">{{ category }}</span>
-        {% endfor %}
-    </div>
-    {% endif %}
-
-    <div style="margin-top: 50px; padding-top: 30px; border-top: 2px solid #e2e8f0; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
-        {% if page.previous.url %}
-        <a href="{{ page.previous.url | relative_url }}" style="color: #2563eb; text-decoration: none; font-weight: 600; padding: 12px 20px; border: 2px solid #2563eb; border-radius: 8px; transition: all 0.3s; max-width: 45%;">
-            ← {{ page.previous.title }}
-        </a>
-        {% else %}
-        <div></div>
+        {% if page.tags %}
+        <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #e2e8f0;">
+            <strong style="color: #1a1a1a; margin-right: 15px;">Tags:</strong>
+            {% for tag in page.tags %}
+            <span style="background: #eff6ff; color: #2563eb; padding: 6px 14px; border-radius: 6px; font-size: 0.9em; margin-right: 8px; display: inline-block; margin-bottom: 8px; border: 1px solid #dbeafe;">{{ tag }}</span>
+            {% endfor %}
+        </div>
         {% endif %}
-        
-        {% if page.next.url %}
-        <a href="{{ page.next.url | relative_url }}" style="color: #2563eb; text-decoration: none; font-weight: 600; padding: 12px 20px; border: 2px solid #2563eb; border-radius: 8px; transition: all 0.3s; max-width: 45%; text-align: right;">
-            {{ page.next.title }} →
-        </a>
+
+        {% if page.categories %}
+        <div style="margin-top: 20px;">
+            <strong style="color: #1a1a1a; margin-right: 15px;">Categories:</strong>
+            {% for category in page.categories %}
+            <span style="background: #eff6ff; color: #2563eb; padding: 6px 14px; border-radius: 6px; font-size: 0.9em; margin-right: 8px; display: inline-block; border: 1px solid #dbeafe;">{{ category }}</span>
+            {% endfor %}
+        </div>
         {% endif %}
-    </div>
-</article>
+
+        <div style="margin-top: 50px; padding-top: 30px; border-top: 2px solid #e2e8f0; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+            {% if page.previous.url %}
+            <a href="{{ page.previous.url | relative_url }}" style="color: #2563eb; text-decoration: none; font-weight: 600; padding: 12px 20px; border: 2px solid #2563eb; border-radius: 8px; transition: all 0.3s; max-width: 45%;">
+                ← {{ page.previous.title }}
+            </a>
+            {% else %}
+            <div></div>
+            {% endif %}
+
+            {% if page.next.url %}
+            <a href="{{ page.next.url | relative_url }}" style="color: #2563eb; text-decoration: none; font-weight: 600; padding: 12px 20px; border: 2px solid #2563eb; border-radius: 8px; transition: all 0.3s; max-width: 45%; text-align: right;">
+                {{ page.next.title }} →
+            </a>
+            {% endif %}
+        </div>
+    </article>
+</div>
 
 <style>
     .content h2 {

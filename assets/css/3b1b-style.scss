@@ -73,6 +73,11 @@ body {
 .nav-menu {
     display: flex;
     gap: 5px;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .nav-item {
@@ -508,6 +513,22 @@ body {
     transition: transform 0.3s ease;
 }
 
+.card-placeholder {
+    background: linear-gradient(135deg, #f8fafc 0%, #dbeafe 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    color: $accent-dark;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.35;
+}
+
+.learning-log-card {
+    border-left: 3px solid $success;
+}
+
 .card-badge {
     position: absolute;
     top: 12px;
@@ -561,6 +582,23 @@ body {
     font-size: 0.85em;
     margin-bottom: 10px;
     flex-wrap: wrap;
+}
+
+.learning-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+
+    span {
+        background: #f0fdf4;
+        color: #047857;
+        border: 1px solid #bbf7d0;
+        border-radius: 4px;
+        padding: 4px 9px;
+        font-size: 0.78em;
+        font-weight: 600;
+    }
 }
 
 .card-date,
@@ -727,6 +765,294 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 30px;
     margin-bottom: 50px;
+}
+
+.content-section {
+    margin-bottom: 70px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.content-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 28px;
+
+    h2 {
+        color: $primary-text;
+        font-size: 2em;
+        margin-bottom: 8px;
+        font-weight: 700;
+    }
+
+    p {
+        color: $secondary-text;
+        margin: 0;
+    }
+}
+
+.section-link {
+    color: $accent-color;
+    border: 1px solid $accent-color;
+    border-radius: 6px;
+    padding: 9px 16px;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: $accent-color;
+        color: $white;
+    }
+}
+
+.empty-state {
+    background: $white;
+    border: 1px dashed $border-color;
+    border-radius: 8px;
+    padding: 34px;
+    color: $secondary-text;
+
+    h3 {
+        color: $primary-text;
+        font-size: 1.2em;
+        margin-bottom: 8px;
+    }
+
+    code {
+        background: $light-gray;
+        color: $accent-color;
+        border-radius: 4px;
+        padding: 2px 6px;
+    }
+}
+
+.learning-log-header {
+    background: linear-gradient(135deg, #f8fafc 0%, #f0fdf4 100%);
+}
+
+.learning-log-intro {
+    background: $white;
+    border: 1px solid $border-color;
+    border-left: 3px solid $success;
+    border-radius: 8px;
+    padding: 34px;
+    margin-bottom: 36px;
+
+    h2 {
+        color: $primary-text;
+        font-size: 1.8em;
+        margin-bottom: 14px;
+    }
+
+    p {
+        color: $secondary-text;
+        line-height: 1.8;
+        margin: 0;
+    }
+}
+
+.learning-log-browser {
+    background: $white;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    padding: 30px;
+}
+
+.learning-log-browser-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 24px;
+
+    h2 {
+        color: $primary-text;
+        font-size: 1.8em;
+        margin-bottom: 8px;
+    }
+
+    p {
+        color: $secondary-text;
+        margin: 0;
+    }
+}
+
+.learning-log-count {
+    color: #047857;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 0.85em;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.learning-log-filters {
+    display: grid;
+    grid-template-columns: minmax(260px, 1.3fr) repeat(2, minmax(190px, 1fr)) auto;
+    gap: 14px;
+    align-items: end;
+    margin-bottom: 18px;
+}
+
+.filter-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    span {
+        color: $light-text;
+        font-size: 0.78em;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    select,
+    input {
+        width: 100%;
+        border: 1px solid $border-color;
+        border-radius: 6px;
+        background: $white;
+        color: $primary-text;
+        font: inherit;
+        min-height: 42px;
+        padding: 8px 12px;
+    }
+
+    input::placeholder {
+        color: $light-text;
+    }
+}
+
+.filter-reset {
+    border: 1px solid $accent-color;
+    border-radius: 6px;
+    background: $white;
+    color: $accent-color;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    min-height: 42px;
+    padding: 8px 16px;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: $accent-color;
+        color: $white;
+    }
+}
+
+.active-filters {
+    color: $secondary-text;
+    font-size: 0.92em;
+    margin-bottom: 24px;
+}
+
+.learning-log-grid {
+    margin-bottom: 0;
+}
+
+.learning-log-item[hidden],
+.learning-log-empty[hidden] {
+    display: none;
+}
+
+.content mjx-container {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.post-layout {
+    display: grid;
+    grid-template-columns: minmax(190px, 260px) minmax(0, 900px);
+    gap: 32px;
+    align-items: start;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.post-article {
+    box-sizing: border-box;
+    max-width: none;
+    min-width: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.post-body {
+    background: $white;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    min-width: 0;
+    padding: 40px;
+}
+
+.post-toc {
+    position: sticky;
+    top: 95px;
+    background: $white;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    padding: 18px;
+    max-height: calc(100vh - 120px);
+    overflow: auto;
+    min-width: 0;
+}
+
+.post-toc-title {
+    color: $primary-text;
+    font-size: 0.78em;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.post-toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.post-toc-item {
+    margin: 0;
+
+    a {
+        border-left: 2px solid transparent;
+        color: $secondary-text;
+        display: block;
+        font-size: 0.9em;
+        line-height: 1.45;
+        padding: 6px 0 6px 10px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+
+        &:hover,
+        &.active {
+            border-left-color: $accent-color;
+            color: $accent-color;
+        }
+    }
+}
+
+.post-toc-level-3 a {
+    font-size: 0.84em;
+    padding-left: 24px;
+}
+
+.post-toc-level-4 a {
+    font-size: 0.8em;
+    padding-left: 38px;
 }
 
 /* Section Headers */
@@ -1209,6 +1535,17 @@ footer {
     .topics-grid {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
+
+    .post-layout {
+        grid-template-columns: 1fr;
+        max-width: 900px;
+        padding: 30px;
+    }
+
+    .post-toc {
+        max-height: 280px;
+        position: static;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1226,8 +1563,10 @@ footer {
 
     .nav-menu {
         width: 100%;
-        justify-content: space-around;
+        justify-content: flex-start;
         overflow-x: auto;
+        gap: 4px;
+        padding-bottom: 4px;
     }
 
     .nav-item {
@@ -1344,8 +1683,54 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .page-header {
+        padding: 60px 30px 35px;
+
+        h1 {
+            font-size: 2.25em;
+        }
+
+        .page-description {
+            font-size: 1.05em;
+        }
+    }
+
+    .content-section-header {
+        align-items: flex-start;
+        flex-direction: column;
+
+        h2 {
+            font-size: 1.6em;
+        }
+    }
+
+    .learning-log-browser {
+        padding: 20px;
+    }
+
+    .learning-log-browser-header {
+        flex-direction: column;
+        gap: 12px;
+
+        h2 {
+            font-size: 1.5em;
+        }
+    }
+
+    .learning-log-filters {
+        grid-template-columns: 1fr;
+    }
+
     .topics-grid {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .post-layout {
+        padding: 24px 20px;
+    }
+
+    .post-body {
+        padding: 24px 20px;
     }
 }
 
