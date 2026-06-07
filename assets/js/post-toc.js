@@ -53,6 +53,7 @@ if (postBody && postToc && postTocNav) {
 
         postTocNav.appendChild(list);
         postToc.hidden = false;
+        postToc.closest('.post-layout')?.classList.add('has-post-toc');
 
         const links = Array.from(postTocNav.querySelectorAll('a'));
         const observer = new IntersectionObserver((entries) => {

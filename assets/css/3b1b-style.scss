@@ -1065,12 +1065,17 @@ body {
 
 .post-layout {
     display: grid;
-    grid-template-columns: minmax(190px, 260px) minmax(0, 900px);
+    grid-template-columns: minmax(0, 900px);
     gap: 32px;
     align-items: start;
-    max-width: 1240px;
+    max-width: 980px;
     margin: 0 auto;
     padding: 40px;
+}
+
+.post-layout.has-post-toc {
+    grid-template-columns: minmax(190px, 260px) minmax(0, 900px);
+    max-width: 1240px;
 }
 
 .post-article {
@@ -1632,6 +1637,11 @@ footer {
         grid-template-columns: 1fr;
         max-width: 900px;
         padding: 30px;
+    }
+
+    .post-layout.has-post-toc {
+        grid-template-columns: 1fr;
+        max-width: 900px;
     }
 
     .post-toc {
