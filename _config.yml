@@ -13,7 +13,12 @@ affiliation: Vietnamese-German University (VGU)
 phone: +84984677257
 
 markdown: kramdown
+highlighter: rouge
 theme: jekyll-theme-minimal
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 # Plugins
 plugins:

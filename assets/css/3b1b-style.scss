@@ -971,6 +971,98 @@ body {
     overflow-y: hidden;
 }
 
+.content .highlighter-rouge,
+.content figure.highlight {
+    margin: 26px 0;
+}
+
+.content .highlight {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.content .highlight pre,
+.content pre.highlight {
+    background: #0f172a;
+    border-left: 4px solid $accent-color;
+    color: #dbeafe;
+    margin: 0;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.content .highlight code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+}
+
+.content .highlight .c,
+.content .highlight .c1,
+.content .highlight .cm,
+.content .highlight .cs {
+    color: #94a3b8;
+    font-style: italic;
+}
+
+.content .highlight .k,
+.content .highlight .kd,
+.content .highlight .kn,
+.content .highlight .kp,
+.content .highlight .kr,
+.content .highlight .kt {
+    color: #c084fc;
+    font-weight: 600;
+}
+
+.content .highlight .nf,
+.content .highlight .na,
+.content .highlight .nb,
+.content .highlight .nc {
+    color: #67e8f9;
+}
+
+.content .highlight .n,
+.content .highlight .nv,
+.content .highlight .vc,
+.content .highlight .vg,
+.content .highlight .vi {
+    color: #dbeafe;
+}
+
+.content .highlight .s,
+.content .highlight .s1,
+.content .highlight .s2,
+.content .highlight .se,
+.content .highlight .sc {
+    color: #86efac;
+}
+
+.content .highlight .m,
+.content .highlight .mi,
+.content .highlight .mf,
+.content .highlight .mh {
+    color: #fbbf24;
+}
+
+.content .highlight .o,
+.content .highlight .ow,
+.content .highlight .p {
+    color: #bfdbfe;
+}
+
+.content .highlight .cp,
+.content .highlight .cpf {
+    color: #f9a8d4;
+}
+
+.content .highlight .err {
+    color: #fecaca;
+    background: rgba(239, 68, 68, 0.16);
+}
+
 .post-layout {
     display: grid;
     grid-template-columns: minmax(190px, 260px) minmax(0, 900px);
