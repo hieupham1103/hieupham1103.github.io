@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "DSA Learning Log: Trees, BSTs, and AVL Balancing"
+title: "DSA: Trees, BSTs, and AVL Balancing"
 date: 2026-05-20
 permalink: /content/learning-log/dsa-trees-bst-avl/
 categories: [Learning Log, University, DSA]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "DSA Learning Log: Linked Lists, Stacks, and Queues"
+title: "DSA: Linked Lists, Stacks, and Queues"
 date: 2026-04-21
 permalink: /content/learning-log/dsa-linked-lists-stacks-queues/
 categories: [Learning Log, University, DSA]

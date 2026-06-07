@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "DSA Learning Log: Heaps, Priority Queues, and Hashing"
+title: "DSA: Heaps, Priority Queues, and Hashing"
 date: 2026-04-25
 permalink: /content/learning-log/dsa-heaps-priority-queues-hashing/
 categories: [Learning Log, University, DSA]
