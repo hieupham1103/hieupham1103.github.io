@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Pushdown Automata"
-date: 2026-03-14
-permalink: /content/learning-log/tcs-introduction/
+date: 2026-06-08
+permalink: /content/learning-log/pushdown_automata/
 categories: [Learning Log, University, TCS]
 tags: []
 subject: "Theoretical Computer Science"
@@ -79,7 +79,7 @@ $$L(M)=\{w\in\Sigma^{*}:(q_{0},w,z)\vdash_{M}^{*}(q_{f},\lambda,u),q_{f}\in F,u\
 
 ## Ví dụ về các hoạt động của NDPA
 > Kiểm tra xem một sring có phải là Palindrome có độ dài chẵn.
-Ngôn ngữ này được biểu diễn bằng công thức:$$L = \{ww^R : w \in \{a,b\}^*\}$$
+Ngôn ngữ này được biểu diễn bằng công thức: $$L = \{ww^R : w \in \{a,b\}^*\}$$
 
 ### Solution
 
