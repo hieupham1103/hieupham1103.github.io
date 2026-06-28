@@ -1,17 +1,17 @@
 ---
 
 ## layout: post
-title: “Introduction to Theoretical Computer Science”  
-date: 2026-03-14  
+title: "Introduction to Theoretical Computer Science"  
+date: 2026-03-11  
 permalink: /content/learning-log/tcs-introduction/  
-categories: \[Learning Log, University, TCS\]  
-tags: \[\]  
-subject: “Theoretical Computer Science”  
-level: “University”  
-course: “Theoretical Computer Science”  
-semester: “Year 2”  
-excerpt: “”
-
+categories: [Learning Log, University, TCS]  
+tags: []  
+subject: "Theoretical Computer Science"  
+level: "University"  
+course: "Theoretical Computer Science"  
+semester: "Year 2"  
+excerpt: ""
+---
 # Language
 
 ## Alphabet

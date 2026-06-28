@@ -1,19 +1,19 @@
 ---
 
 ## layout: post
-title: “Finite Automata"  
+title: "Finite Automata"  
 date: 2026-03-14  
-permalink: /content/learning-log/tcs-finite_automata/  
-categories: \[Learning Log, University, TCS\]  
-tags: \[\]  
-subject: “Theoretical Computer Science”  
-level: “University”  
-course: “Theoretical Computer Science”  
-semester: “Year 2”  
-excerpt: “”
+permalink: content/learning-log/tcs-finite_automata/  
+categories: [Learning Log, University, TCS]  
+tags: []  
+subject: "Theoretical Computer Science"
+level: "University"  
+course: "Theoretical Computer Science"  
+semester: "Year 2"  
+excerpt: ""
 ---
 
-Finite Automata là mô hình máy trừu tượng có số trạng thái hữu hạn, dùng để nhận diện chuỗi thuộc hay không thuộc một ngôn ngữ. Trong bài này, “finite accepter” chỉ trả lời accept/reject, không sinh output phức tạp.
+Finite Automata là mô hình máy trừu tượng có số trạng thái hữu hạn, dùng để nhận diện chuỗi thuộc hay không thuộc một ngôn ngữ. Trong bài này, "finite accepter" chỉ trả lời accept/reject, không sinh output phức tạp.
 
 # DFA - Deterministic Finite Accepter
 
@@ -29,7 +29,7 @@ Trong đó:
 - $q_0 \in Q$: Trạng thái bắt đầu
 - $F \subseteq Q$: Tập trạng thái kết thúc/chấp nhận
 
-DFA là “deterministic” vì tại mỗi cặp $(q,a)$, chỉ có một trạng thái kế tiếp duy nhất. Vì vậy khi chạy một chuỗi, DFA chỉ có đúng một đường đi.
+DFA là "deterministic" vì tại mỗi cặp $(q,a)$, chỉ có một trạng thái kế tiếp duy nhất. Vì vậy khi chạy một chuỗi, DFA chỉ có đúng một đường đi.
 
 ## Cách hoạt động của DFA
 DFA bắt đầu ở $q_0$, đọc chuỗi từ trái sang phải. Mỗi bước đọc đúng một ký tự và chuyển trạng thái theo δ. Khi đọc hết chuỗi, nếu trạng thái hiện tại thuộc $F$ thì chuỗi được chấp nhận, ngược lại bị từ chối.
