@@ -42,18 +42,18 @@ Chuỗi rỗng ký hiệu là $\lambda$. Chuỗi rỗng có độ dài bằng 0.
 ## Các phép toán trên chuỗi
 ### Concatenation
 Là phép nối 2 string lại với nhau
-$$
-w = a_1a_2...a_m \\
-v = b_1b_2...b_n \\
 
-wv = a_1a_2...a_mb_1b_2...b_n
+$$
+w = a_1a_2\ldots a_m \\
+v = b_1b_2\ldots b_n \\
+wv = a_1a_2\ldots a_m b_1b_2\ldots b_n
 $$
 
 ### Reverse
 Chuỗi đảo của $w$ ký hiệu là $w^R$.
 $$
-w = a_1a_2...a_n\\
-w^R = a_n...a_2a_1
+w = a_1a_2\ldots a_n\\
+w^R = a_n\ldots a_2a_1
 $$
 
 ### Lũy thừa chuỗi
@@ -82,7 +82,7 @@ Một language $L$ là một tập con của $\sum^*$.
 Một chuỗi thuộc ngôn ngữ $L$ được gọi là một sentence của $L$.
 
 $$
-\sum = {a, b} \\
+\Sigma = \{a, b\} \\
 L = \{a, aa, aab\} \\
 L = \{a^n b^n : n \geq 0\}
 $$

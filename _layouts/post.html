@@ -2,6 +2,11 @@
 layout: default
 ---
 
+{% assign is_learning_log = false %}
+{% if page.categories contains 'Learning Log' %}
+    {% assign is_learning_log = true %}
+{% endif %}
+
 <div class="page-header">
     <h1>{{ page.title }}</h1>
     <div class="post-meta" style="color: #718096; font-size: 1em; margin-top: 15px;">
@@ -15,6 +20,13 @@ layout: default
         <span class="post-duration"> • {{ page.duration }}</span>
         {% endif %}
     </div>
+    {% if is_learning_log %}
+    <div class="post-print-actions" aria-label="Learning Log print actions">
+        <button class="print-cheatsheet-button" type="button" onclick="window.print()">
+            Print Cheatsheet
+        </button>
+    </div>
+    {% endif %}
 </div>
 
 <div class="post-layout">
@@ -29,7 +41,7 @@ layout: default
         </div>
 
         {% if page.tags %}
-        <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #e2e8f0;">
+        <div class="post-taxonomy" style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #e2e8f0;">
             <strong style="color: #1a1a1a; margin-right: 15px;">Tags:</strong>
             {% for tag in page.tags %}
             <span style="background: #eff6ff; color: #2563eb; padding: 6px 14px; border-radius: 6px; font-size: 0.9em; margin-right: 8px; display: inline-block; margin-bottom: 8px; border: 1px solid #dbeafe;">{{ tag }}</span>
@@ -38,7 +50,7 @@ layout: default
         {% endif %}
 
         {% if page.categories %}
-        <div style="margin-top: 20px;">
+        <div class="post-taxonomy" style="margin-top: 20px;">
             <strong style="color: #1a1a1a; margin-right: 15px;">Categories:</strong>
             {% for category in page.categories %}
             <span style="background: #eff6ff; color: #2563eb; padding: 6px 14px; border-radius: 6px; font-size: 0.9em; margin-right: 8px; display: inline-block; border: 1px solid #dbeafe;">{{ category }}</span>
@@ -46,7 +58,7 @@ layout: default
         </div>
         {% endif %}
 
-        <div style="margin-top: 50px; padding-top: 30px; border-top: 2px solid #e2e8f0; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+        <div class="post-navigation" style="margin-top: 50px; padding-top: 30px; border-top: 2px solid #e2e8f0; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
             {% if page.previous.url %}
             <a href="{{ page.previous.url | relative_url }}" style="color: #2563eb; text-decoration: none; font-weight: 600; padding: 12px 20px; border: 2px solid #2563eb; border-radius: 8px; transition: all 0.3s; max-width: 45%;">
                 ← {{ page.previous.title }}

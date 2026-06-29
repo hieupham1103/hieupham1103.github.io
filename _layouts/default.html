@@ -17,6 +17,63 @@
             },
             svg: {
                 fontCache: 'global'
+            },
+            startup: {
+                ready: () => {
+                    const blockEnvironments = /\\begin\{(?:aligned|gathered|array|cases|matrix|pmatrix|bmatrix|align|split)\}/;
+
+                    function wrapMultilineMath(math) {
+                        if (!math.includes('\\\\') || blockEnvironments.test(math)) {
+                            return math;
+                        }
+
+                        const lines = math
+                            .split('\\\\')
+                            .map((line) => line.trim())
+                            .filter(Boolean);
+
+                        if (lines.length < 2) {
+                            return math;
+                        }
+
+                        const environment = math.includes('&') ? 'aligned' : 'gathered';
+
+                        return `\\begin{${environment}}\n${lines.join(' \\\\\n')}\n\\end{${environment}}`;
+                    }
+
+                    function normalizeMathText(text) {
+                        return text
+                            .replace(/\$\$([\s\S]*?)\$\$/g, (_match, math) => `$$${wrapMultilineMath(math)}$$`)
+                            .replace(/\\\[([\s\S]*?)\\\]/g, (_match, math) => `\\[${wrapMultilineMath(math)}\\]`)
+                            .replace(/\\\(([\s\S]*?\\\\[\s\S]*?)\\\)/g, (_match, math) => `\\[${wrapMultilineMath(math)}\\]`);
+                    }
+
+                    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+                        acceptNode(node) {
+                            if (!node.nodeValue.includes('\\\\')) {
+                                return NodeFilter.FILTER_REJECT;
+                            }
+
+                            const parent = node.parentElement;
+                            if (!parent || parent.closest('script, style, textarea, pre, code')) {
+                                return NodeFilter.FILTER_REJECT;
+                            }
+
+                            return NodeFilter.FILTER_ACCEPT;
+                        }
+                    });
+
+                    const textNodes = [];
+                    while (walker.nextNode()) {
+                        textNodes.push(walker.currentNode);
+                    }
+
+                    textNodes.forEach((node) => {
+                        node.nodeValue = normalizeMathText(node.nodeValue);
+                    });
+
+                    MathJax.startup.defaultReady();
+                }
             }
         };
     </script>

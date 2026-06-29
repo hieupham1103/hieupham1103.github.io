@@ -85,16 +85,16 @@ $$
 Trong grammar không linear, một sentential form có thể có nhiều biến. Khi đó ta có thể chọn biến nào để thay trước.
 
 $$
-S\rightarrow AB \\
-A\rightarrow aaA∣\lambda \\
-B\rightarrow Bb∣ \lambda 
+S \rightarrow AB \\
+A \rightarrow aaA \mid \lambda \\
+B \rightarrow Bb \mid \lambda
 $$
 
 Dẫn xuất chuỗi `aab` có thể theo nhiều thứ tự khác nhau.
 
 $$
-S\Rightarrow AB\Rightarrow aaAB\Rightarrow aaB\Rightarrow aaBb\Rightarrow aab \\
-S\Rightarrow AB\Rightarrow ABb\Rightarrow aaABb\Rightarrow aaAb\Rightarrow aab
+S \Rightarrow AB \Rightarrow aaAB \Rightarrow aaB \Rightarrow aaBb \Rightarrow aab \\
+S \Rightarrow AB \Rightarrow ABb \Rightarrow aaABb \Rightarrow aaAb \Rightarrow aab
 $$
 
 Hai dẫn xuất này dùng cùng luật sinh, sinh cùng chuỗi, nhưng khác thứ tự thay biến.
@@ -165,8 +165,8 @@ $$
 không là s-grammar vì có hai luật bắt đầu bằng cùng cặp $(S,a)$.
 
 $$
-S\rightarrow aS \\
-S\rightarrow aSS
+S \rightarrow aS \\
+S \rightarrow aSS
 $$
 
 # Ambiguity
@@ -202,8 +202,8 @@ Biến $A$ cứ gọi lại chính nó, không bao giờ kết thúc thành toà
 ### Trường hợp 2: Không reachable từ start symbol
 
 $$
-S\rightarrow aS∣b \\
-A\rightarrow a
+S \rightarrow aS \mid b \\
+A \rightarrow a
 $$
 
 Biến $A$ có thể sinh terminal $a$, nhưng từ $S$ không bao giờ đi tới $A$. Vậy $A$ vẫn useless.
@@ -314,8 +314,8 @@ Sau đó xóa các unit-productions
 Một CFG ở Chomsky Normal Form nếu mọi production đều có một trong hai dạng:
 
 $$
-A\rightarrow BC \\
-A\rightarrow a
+A \rightarrow BC \\
+A \rightarrow a
 $$
 
 Trong đó $A,B,C\in V,a\in T$
@@ -342,8 +342,8 @@ $$
 thì thay thành:
 
 $$
-S\rightarrow B_a​SB_b​ \\
-B_a\rightarrow a , B_b\rightarrow b
+S \rightarrow B_aSB_b \\
+B_a \rightarrow a,\quad B_b \rightarrow b
 $$
 
 #### Bước 2: Tách RHS dài hơn 2
@@ -356,11 +356,11 @@ với $n>2$, ta thêm biến mới để tách nhị phân:
 
 $$
 
-A\rightarrow C_{1}C_1 \\
-D_{1}\rightarrow C_{2}C_2 \\
-D_{2}\rightarrow C_{3}C_3 \\
-⋯ \\
-D_{n−2}\rightarrow C_{n−1}C_n
+A \rightarrow C_{1}D_1 \\
+D_{1} \rightarrow C_{2}D_2 \\
+D_{2} \rightarrow C_{3}D_3 \\
+\vdots \\
+D_{n-2} \rightarrow C_{n-1}C_n
 $$
 
 Mục tiêu là mọi RHS chỉ còn đúng 2 biến.
@@ -383,8 +383,8 @@ Tức là vế phải phải bắt đầu bằng một terminal, sau đó có th
 
 Ví dụ:
 $$
-S\rightarrow aAB \\
-S\rightarrow bC \\
+S \rightarrow aAB \\
+S \rightarrow bC \\
 B \rightarrow c
 $$
 
