@@ -123,3 +123,62 @@ Vì cỗ máy không biết trước chuỗi dài bao nhiêu, nó không thể b
 Nếu máy đã đọc hết chuỗi và ngăn xếp chỉ còn lại ký tự đáy $z$, máy chuyển sang trạng thái kết thúc $q_f$
 
 - $\delta(q_1, \lambda, z) = \{(q_f, z)\}$
+
+
+# Quan hệ giữa PDA và Context-Free Language
+
+Với mọi context-free language $L$, tồn tại một NPDA $M$ sao cho $L=L(M)$
+
+Nếu $L=L(M)$ với một NPDA $M$, thì $L$ là context-free language
+
+> NPDA chính là mô hình automata tương ứng với CFL, giống như DFA/NFA tương ứng với Regular Language
+
+# Chuyển Grammar dạng Greibach sang NPDA
+
+Với grammar ở Greibach Normal Form, tức mọi production có dạng:
+
+$$
+A\rightarrow au
+$$
+
+Trong đó $a$ là terminal, $u$ là chuỗi biến.
+
+Ý tưởng mô phỏng derivation trái nhất:
+- Stack chứa phần biến chưa xử lý.
+- Input đã đọc tương ứng với terminal prefix đã sinh ra.
+- Nếu grammar có rule $A\rightarrow au$, PDA đọc $a$, pop $A$, push $u$.
+
+## Quy trình:
+Cho grammar:
+
+$$
+G=(V,T,S,P)
+$$
+
+ở Greibach Normal Form, xây NPDA:
+$$
+M=(\{q_0​,q_1​,q_f \} ,T,V\cup \{z\},\delta,q_0​,z,\{ q_f \})
+$$
+
+Các transition chính:
+
+$$
+\delta(q_0​,\lambda,z)=\{(q_1​,Sz)\}
+$$
+
+Với mỗi:
+$$
+A\rightarrow au
+$$
+
+thêm:
+$$
+(q_1​,u)\in \delta(q_1​,a,A)
+$$
+
+Cuối cùng:
+$$
+\delta(q_1​,\lambda,z)={(q_f​,z)}
+$$
+
+![](/assets/img/Therectical/pushdown/gnf.png)
