@@ -6,8 +6,6 @@ layout: default
 
 {% include about.html %}
 
-{% include slideshow.html %}
-
 {% include experience.html %}
 
 {% include contact.html %}

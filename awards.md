@@ -11,6 +11,14 @@ permalink: /awards/
 
 <div class="awards-container">
     <div class="award-item">
+        <div class="award-year">2026</div>
+        <div class="award-content">
+            <h3 class="award-title">DAAD scholarship</h3>
+            <p class="award-organization">DAAD - Deutscher Akademischer Austauschdienst/German Academic Exchange Service</p>
+            <p class="award-description">Awarded a DAAD scholarship providing a monthly stipend of €992, along with additional financial support for travel.</p>
+        </div>
+    </div>
+    <div class="award-item">
         <div class="award-year">2024</div>
         <div class="award-content">
             <h3 class="award-title">100% Merit scholarships</h3>
