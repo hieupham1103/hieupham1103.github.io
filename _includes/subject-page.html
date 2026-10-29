@@ -1,0 +1,36 @@
+{% assign study_notes = site.posts | where_exp: "post", "post.categories contains 'Learning Log'" | sort: 'date' | reverse %}
+{% assign subject_notes = study_notes | where: "subject", page.subject %}
+
+<header class="subject-page-hero">
+    <a href="{{ '/content/' | relative_url }}" class="subject-page-crumb">Knowledge Atlas</a>
+    <p class="atlas-section-label">Subject shelf</p>
+    <h1>{{ page.subject }}</h1>
+    <p>{{ page.description }}</p>
+    <div class="subject-page-summary">
+        <span>{{ subject_notes.size }} notes</span>
+        {% if page.level %}<span>{{ page.level }}</span>{% endif %}
+    </div>
+</header>
+
+<main class="content subject-page-content">
+    {% if subject_notes.size > 0 %}
+    <div class="subject-note-list">
+        {% for item in subject_notes %}
+        <article class="subject-note-list__item">
+            <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%d %b %Y" }}</time>
+            <div>
+                <h2><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h2>
+                {% if item.excerpt %}<p>{{ item.excerpt | strip_html }}</p>{% endif %}
+                <div class="subject-note-list__meta">
+                    {% if item.duration %}<span>{{ item.duration }}</span>{% endif %}
+                    {% for tag in item.tags limit:3 %}<span>{{ tag }}</span>{% endfor %}
+                </div>
+            </div>
+            <a class="subject-note-list__link" href="{{ item.url | relative_url }}" aria-label="Read {{ item.title }}">Read <span aria-hidden="true">→</span></a>
+        </article>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="atlas-empty-copy">This shelf is waiting for its first note.</p>
+    {% endif %}
+</main>

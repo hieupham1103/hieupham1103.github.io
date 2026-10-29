@@ -1,85 +1,133 @@
 ---
 layout: default
-title: Content
+title: Knowledge Atlas
 permalink: /content/
 ---
 
-{% assign all_content = site.posts | concat: site.videos | sort: 'date' | reverse %}
-{% assign learning_logs = site.posts | where_exp: "post", "post.categories contains 'Learning Log'" | sort: 'date' | reverse %}
+{% assign study_notes = site.posts | where_exp: "post", "post.categories contains 'Learning Log'" | sort: 'date' | reverse %}
+{% assign subjects = study_notes | map: "subject" | compact | uniq | sort %}
 {% assign videos = site.videos | sort: 'date' | reverse %}
+{% assign research_posts = site.posts | where_exp: "post", "post.categories contains 'Research'" | sort: 'date' | reverse %}
 
-<div class="page-header">
-    <h1>Content</h1>
-    <p class="page-description">Videos, research posts, and Learning Log notes from my study and research journey.</p>
-</div>
+<header class="atlas-hero">
+    <p class="atlas-kicker">A personal knowledge library</p>
+    <h1>Knowledge Atlas</h1>
+    <p class="atlas-lede">Notes, visual explanations, and research collected by subject—made to be explored slowly and revisited often.</p>
+    <nav class="atlas-jump-links" aria-label="Explore the Knowledge Atlas">
+        <a href="#subjects">Subjects</a>
+        <a href="#latest">Latest notes</a>
+        <a href="#research">Research &amp; videos</a>
+    </nav>
+</header>
 
-<div class="content">
-    <section class="content-section">
-        <div class="content-section-header">
-            <div>
-                <h2>Learning Log</h2>
-                <p>Journal-style course notes, study reflections, and research sketches.</p>
-            </div>
-            <a href="{{ '/content/learning-log/' | relative_url }}" class="section-link">View all</a>
-        </div>
-
-        {% if learning_logs.size > 0 %}
-        <div class="content-grid">
-            {% for item in learning_logs limit:6 %}
-            {% include content-card.html item=item %}
-            {% endfor %}
-        </div>
-        {% else %}
-        <div class="empty-state">
-            <h3>No Learning Log entries yet</h3>
-            <p>Add a post with <code>categories: [Learning Log]</code> to publish your first study note.</p>
-        </div>
-        {% endif %}
-    </section>
-
-    <section class="content-section">
-        <div class="content-section-header">
-            <div>
-                <h2>Videos</h2>
-                <p>Educational videos and visual explanations.</p>
-            </div>
-        </div>
-
-        <div class="content-grid">
-            {% for item in videos limit:6 %}
-            {% include content-card.html item=item %}
-            {% endfor %}
+<main class="content atlas-content">
+    <section class="atlas-intro" aria-labelledby="atlas-intro-title">
+        <p class="atlas-section-label">How to use this library</p>
+        <div>
+            <h2 id="atlas-intro-title">Follow a thread, not a feed.</h2>
+            <p>Each subject has its own shelf, so you can start from the foundations, pick up where you left off, and see related notes together. The library combines former Learning Log entries with videos and research writing in one place.</p>
         </div>
     </section>
 
-    <section class="content-section">
-        <div class="content-section-header">
+    <section class="atlas-subjects" id="subjects" aria-labelledby="subjects-title">
+        <div class="atlas-section-heading">
+            <p class="atlas-section-label">Study paths</p>
+            <h2 id="subjects-title">Explore by subject</h2>
+        </div>
+
+        <div class="subject-shelf">
+            {% for subject in subjects %}
+            {% assign notes = study_notes | where: "subject", subject %}
+            {% assign latest_note = notes | first %}
+            {% assign subject_slug = subject | slugify %}
+            {% case subject %}
+                {% when 'Data Structures and Algorithms' %}
+                    {% assign subject_description = 'Core data structures, algorithmic patterns, and ways to reason about performance.' %}
+                    {% assign subject_index = '01' %}
+                {% when 'Discrete Mathematics' %}
+                    {% assign subject_description = 'Counting, trees, and the mathematical structures behind computer science.' %}
+                    {% assign subject_index = '02' %}
+                {% when 'Operating Systems' %}
+                    {% assign subject_description = 'The abstractions that let programs share hardware safely and efficiently.' %}
+                    {% assign subject_index = '03' %}
+                {% when 'Theoretical Computer Science' %}
+                    {% assign subject_description = 'Languages, automata, grammars, and the limits of computation.' %}
+                    {% assign subject_index = '04' %}
+                {% else %}
+                    {% assign subject_description = 'A growing collection of study notes and working ideas.' %}
+                    {% assign subject_index = '—' %}
+            {% endcase %}
+            <article class="subject-shelf__item">
+                <p class="subject-shelf__number">{{ subject_index }}</p>
+                <div class="subject-shelf__body">
+                    <h3><a href="{{ '/content/subjects/' | append: subject_slug | append: '/' | relative_url }}">{{ subject }}</a></h3>
+                    <p>{{ subject_description }}</p>
+                    <div class="subject-shelf__meta">
+                        <span>{{ notes.size }} notes</span>
+                        {% if latest_note %}<span>Latest: {{ latest_note.date | date: "%b %Y" }}</span>{% endif %}
+                    </div>
+                </div>
+                <a class="subject-shelf__link" href="{{ '/content/subjects/' | append: subject_slug | append: '/' | relative_url }}" aria-label="Explore {{ subject }}">Explore <span aria-hidden="true">→</span></a>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="atlas-latest" id="latest" aria-labelledby="latest-title">
+        <div class="atlas-section-heading atlas-section-heading--split">
             <div>
-                <h2>Research Posts</h2>
-                <p>Notes and articles about AI, computer vision, and research projects.</p>
+                <p class="atlas-section-label">Recently added</p>
+                <h2 id="latest-title">Latest study notes</h2>
             </div>
+            <a href="#subjects" class="atlas-text-link">Browse a subject <span aria-hidden="true">→</span></a>
         </div>
 
         <div class="content-grid">
-            {% assign research_count = 0 %}
-            {% for item in site.posts %}
-            {% if item.categories contains 'Research' and item.categories contains 'Learning Log' %}
-                {% continue %}
-            {% endif %}
-            {% if item.categories contains 'Research' %}
-            {% assign research_count = research_count | plus: 1 %}
-            {% if research_count <= 6 %}
+            {% for item in study_notes limit:6 %}
             {% include content-card.html item=item %}
-            {% endif %}
-            {% endif %}
             {% endfor %}
         </div>
-
-        {% if research_count == 0 %}
-        <div class="empty-state">
-            <h3>No research posts yet</h3>
-            <p>Research posts appear here when a post includes the <code>Research</code> category.</p>
-        </div>
-        {% endif %}
     </section>
-</div>
+
+    <section class="atlas-research" id="research" aria-labelledby="research-title">
+        <div class="atlas-section-heading">
+            <p class="atlas-section-label">Beyond coursework</p>
+            <h2 id="research-title">Research &amp; visual explanations</h2>
+        </div>
+
+        <div class="atlas-research-grid">
+            <div>
+                <h3>Research writing</h3>
+                {% if research_posts.size > 0 %}
+                <div class="atlas-reading-list">
+                    {% for item in research_posts limit:3 %}
+                    <a href="{{ item.url | relative_url }}">
+                        <span>{{ item.date | date: "%Y" }}</span>
+                        <strong>{{ item.title }}</strong>
+                        <i aria-hidden="true">↗</i>
+                    </a>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p class="atlas-empty-copy">Research writing will appear here as the collection grows.</p>
+                {% endif %}
+            </div>
+            <div>
+                <h3>Videos</h3>
+                {% if videos.size > 0 %}
+                <div class="atlas-reading-list">
+                    {% for item in videos limit:3 %}
+                    <a href="{{ item.url | relative_url }}">
+                        <span>{{ item.date | date: "%Y" }}</span>
+                        <strong>{{ item.title }}</strong>
+                        <i aria-hidden="true">↗</i>
+                    </a>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p class="atlas-empty-copy">New visual explanations are on their way.</p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</main>

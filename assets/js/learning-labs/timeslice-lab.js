@@ -37,8 +37,8 @@ function initialiseLab(lab) {
             return createCell(process, index === 0);
         }));
 
-        status.textContent = `CPU đang chạy ${PROCESS_NAMES[activeProcess]}. Sau một time slice, kernel sẽ chuyển sang tác vụ tiếp theo.`;
-        runButton.textContent = isRunning() ? 'Tạm dừng' : 'Tự chạy';
+        status.textContent = `The CPU is running ${PROCESS_NAMES[activeProcess]}. After one time slice, the kernel will switch to the next task.`;
+        runButton.textContent = isRunning() ? 'Pause' : 'Run automatically';
     }
 
     function advance() {
