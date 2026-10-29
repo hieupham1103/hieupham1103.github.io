@@ -126,5 +126,8 @@
     {% if page.layout == 'post' %}
     <script src="{{ '/assets/js/post-toc.js' | relative_url }}"></script>
     {% endif %}
+    {% if page.interactive_labs %}
+    <script type="module" src="{{ '/assets/js/interactive-posts.js' | relative_url }}"></script>
+    {% endif %}
 </body>
 </html>
