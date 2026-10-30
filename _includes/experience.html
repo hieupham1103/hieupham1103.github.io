@@ -1,127 +1,21 @@
 <section class="experience-section">
     <div class="experience-content">
-        <h2 class="section-title">Working Experience</h2>
+        <h2 class="section-title">{{ site.data.home.experience.title }}</h2>
         <div class="timeline">
+            {% for role in site.data.home.experience.items %}
             <div class="timeline-item">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
-                    <a href="https://vgu.edu.vn/" target="_blank" class="timeline-logo">
-                        <img src="{{ '/assets/img/logo/vgu.jpg' | relative_url }}" alt="VGU Logo">
-                    </a>
+                    <a href="{{ role.url }}" target="_blank" rel="noopener" class="timeline-logo"><img src="{{ role.logo | relative_url }}" alt="{{ role.logo_alt }}"></a>
                     <div class="timeline-info">
-                        <div class="timeline-date">2024 - Present</div>
-                        <h3 class="timeline-title">AI Research Assistant</h3>
-                        <p class="timeline-company">Vietnamese-German University - VGU</p>
-                        <p class="timeline-description">
-                            Conducting research on few-shot learning, vision-language models, and real-time computer vision systems.
-                        </p>
+                        <div class="timeline-date">{{ role.date }}</div>
+                        <h3 class="timeline-title">{{ role.title }}</h3>
+                        <p class="timeline-company">{{ role.company }}</p>
+                        {% if role.description %}<p class="timeline-description">{{ role.description }}</p>{% endif %}
                     </div>
                 </div>
             </div>
-
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <a href="https://www.frankfurt-university.de/" target="_blank" class="timeline-logo">
-                        <img src="{{ '/assets/img/logo/frankuas.jpg' | relative_url }}" alt="VGU Logo">
-                    </a>
-                    <div class="timeline-info">
-                        <div class="timeline-date">2026 - Present</div>
-                        <h3 class="timeline-title">Computer Science Student</h3>
-                        <p class="timeline-company">Frankfurt University of Applied Sciences</p>
-                        <p class="timeline-description">
-                            Participating in an academic exchange semester in Computer Science through the partnership between VGU and FrankUAS.<br>
-                            Awarded the prestigious DAAD Scholarship to support academic studies and cultural exchange in Germany.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <a href="https://www.facebook.com/vgu.rec" target="_blank" class="timeline-logo">
-                        <img src="{{ '/assets/img/logo/rec.jpg' | relative_url }}" alt="REC Logo">
-                    </a>
-                    <div class="timeline-info">
-                        <div class="timeline-date">May 2026 - Present</div>
-                        <h3 class="timeline-title">Vice president</h3>
-                        <p class="timeline-company">VGU Robotics & Electronics Club - REC</p>
-                        <p class="timeline-description">
-                            Coordinating technical projects and managing club activities. Mentoring members in robotics, electronics, and software development.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <a href="https://vgu.edu.vn/" target="_blank" class="timeline-logo">
-                        <img src="{{ '/assets/img/logo/vgu.jpg' | relative_url }}" alt="VGU Logo">
-                    </a>
-                    <div class="timeline-info">
-                        <div class="timeline-date">2024 - Present</div>
-                        <h3 class="timeline-title">Computer Science Student</h3>
-                        <p class="timeline-company">Vietnamese-German University - VGU</p>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <a href="https://www.facebook.com/vgu.rec" target="_blank" class="timeline-logo">
-                        <img src="{{ '/assets/img/logo/rec.jpg' | relative_url }}" alt="REC Logo">
-                    </a>
-                    <div class="timeline-info">
-                        <div class="timeline-date">Nov 2025 - May 2026</div>
-                        <h3 class="timeline-title">Technical Deputy</h3>
-                        <p class="timeline-company">VGU Robotics & Electronics Club - REC</p>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <a href="https://www.facebook.com/vgu.rec" target="_blank" class="timeline-logo">
-                        <img src="{{ '/assets/img/logo/rec.jpg' | relative_url }}" alt="REC Logo">
-                    </a>
-                    <div class="timeline-info">
-                        <div class="timeline-date">Oct 2024 - Nov 2025</div>
-                        <h3 class="timeline-title">Member</h3>
-                        <p class="timeline-company">VGU Robotics & Electronics Club - REC</p>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <a href="https://orzlab.net/" target="_blank" class="timeline-logo">
-                        <img src="{{ '/assets/img/logo/orzlab.png' | relative_url }}" alt="Orzlab Logo">
-                    </a>
-                    <div class="timeline-info">
-                        <div class="timeline-date">2023 - Present</div>
-                        <h3 class="timeline-title">Founder & Content Creator</h3>
-                        <p class="timeline-company">Orzlab</p>
-                        <p class="timeline-description">
-                            Leading educational content creation focusing on AI, mathematics, and computer science. Bridging the gap between complex research and public understanding through visual demonstrations.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <a href="https://lqdon.khanhhoa.edu.vn/" target="_blank" class="timeline-logo">
-                        <img src="{{ '/assets/img/logo/lqd.png' | relative_url }}" alt="LQD Logo">
-                    </a>
-                    <div class="timeline-info">
-                        <div class="timeline-date">2021 - 2024</div>
-                        <h3 class="timeline-title">Student majoring in Informatics/Computer Science</h3>
-                        <p class="timeline-company">Le Quy Don High School for the Gifted - Khanh Hoa</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

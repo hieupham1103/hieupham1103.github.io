@@ -115,6 +115,9 @@
     {% if page.url == '/' %}
     <script src="{{ '/assets/js/slideshow.js' | relative_url }}"></script>
     {% endif %}
+    {% if page.url == '/' or page.url == '/publications/' %}
+    <script src="{{ '/assets/js/publications.js' | relative_url }}"></script>
+    {% endif %}
     {% if page.url == '/content/learning-log/' %}
     <script src="{{ '/assets/js/learning-log.js' | relative_url }}"></script>
     {% endif %}

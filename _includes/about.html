@@ -1,64 +1,24 @@
+{% assign about = site.data.home.about %}
 <section class="about-intro">
     <div class="about-intro-content">
-        <h2 class="about-intro-title">About Me</h2>
+        <h2 class="about-intro-title">{{ about.title }}</h2>
         <div class="about-intro-text">
-            <p>
-                I'm a third-year <b>Computer Science student</b> and <b>AI Research Assistant</b> at <i>Vietnamese-German University - VGU </i>. My current research focuses on few-shot learning, vision-language models, and real-time computer vision systems, aiming to develop more efficient and adaptive AI architectures.
-            </p>
-            <p>
-                My academic foundation is rooted in competitive programming, having earned a <b>Third Prize in the Vietnamese Olympiad in Informatics - VOI</b> during my time at <i>Le Quy Don High School for the Gifted - Khanh Hoa</i>. This experience instilled in me a deep love for algorithmic problem-solving and technical excellence.
-            </p>
-            <p>
-                In addition to my research, I lead Orzlab as a Content Creator. I am passionate about AI education and dedicated to making advanced concepts in mathematics and computer science accessible to everyone. Through Orzlab, I bridge the gap between complex research and public understanding through clear, visual demonstrations and educational content.
-            </p>
+            {% for paragraph in about.paragraphs %}{{ paragraph | markdownify }}{% endfor %}
         </div>
-
-        <!-- Info Grid -->
         <div class="about-grid">
+            {% for fact in about.facts %}
             <div class="about-card">
-                <h3>Education</h3>
-                <p>
-                    <strong>Vietnamese-German University</strong><br>
-                    B.Sc. Computer Science<br>
-                    Focus: Artificial Intelligence<br>
-                    2024 - Present
-                </p>
+                <h3>{{ fact.title }}</h3>
+                <p>{% for line in fact.lines %}{{ line | markdownify | remove: '<p>' | remove: '</p>' }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}</p>
             </div>
-
-            <div class="about-card">
-                <h3>Current</h3>
-                <p>
-                    - <b>AI Researcher</b> at <i>Vietnamese-German University - VGU</i><br>
-                    - <b>Technical Deputy</b> at <i>VGU Robotics & Electronics Club - REC</i><br>
-                    - <b>Founder and Admin</b> at <i>Orzlab</i><br>
-                </p>
-            </div>
+            {% endfor %}
         </div>
-
-        <!-- Publications Section -->
         <div class="about-publications">
             <h3>Recent Publications</h3>
-            
-            <div class="pub-item">
-                <h4>FaLCon: Facet-Anchored Retrieval with Late Consensus for Sim2Real Text-Based Person Anomaly Search</h4>
-                <p class="pub-authors">
-                    <strong>H. D. T. Pham</strong>, P. H. V. Tran, ..., C. T. Nguyen
-                </p>
-                <p class="pub-venue">European Conference on Computer Vision 2026 Workshop</p>
+            <div class="publication-list publication-list--home" data-publications="selected" data-bib-source="{{ '/assets/data/publications.bib' | relative_url }}">
+                <p class="publication-loading">Loading publications…</p>
             </div>
-
-            <div class="pub-item">
-                <h4>GeoRoute: Geometry-Aware Hybrid Inference for Traffic Future-Frame Prediction</h4>
-                <p class="pub-authors">
-                    K. M. Le, <strong>H. D. T. Pham</strong>, ..., C. T. Nguyen
-                </p>
-                <p class="pub-venue">European Conference on Computer Vision 2026 Workshop</p>
-            </div>
-
-            <p style="margin-top: 20px;">
-                <a href="{{ '/publications/' | relative_url }}" class="view-more-link">View all publications →</a>
-            </p>
+            <p style="margin-top: 20px;"><a href="{{ '/publications/' | relative_url }}" class="view-more-link">View all publications →</a></p>
         </div>
-
     </div>
 </section>

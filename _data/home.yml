@@ -1,0 +1,106 @@
+hero:
+  eyebrow: Research · Learning · Making things
+  name: Pham Dinh Trung Hieu
+  subtitle: AI Research Assistant | Educational Content Creator
+  avatar: /assets/img/avatar.jpeg
+
+about:
+  title: About Me
+  paragraphs:
+    - "I'm a third-year **Computer Science student** and **AI Research Assistant** at *Vietnamese-German University – VGU*. My current research focuses on few-shot learning, vision-language models, and real-time computer vision systems, aiming to develop more efficient and adaptive AI architectures."
+    - "My academic foundation is rooted in competitive programming, having earned a **Third Prize in the Vietnamese Olympiad in Informatics – VOI** during my time at *Le Quy Don High School for the Gifted – Khanh Hoa*. This experience instilled in me a deep love for algorithmic problem-solving and technical excellence."
+    - "In addition to my research, I lead Orzlab as a Content Creator. I am passionate about AI education and dedicated to making advanced concepts in mathematics and computer science accessible to everyone."
+  facts:
+    - title: Education
+      lines:
+        - "**Vietnamese-German University**"
+        - B.Sc. Computer Science
+        - "Focus: Artificial Intelligence"
+        - 2024 – Present
+    - title: Current
+      lines:
+        - "**AI Researcher** at *Vietnamese-German University – VGU*"
+        - "**Technical Deputy** at *VGU Robotics & Electronics Club – REC*"
+        - "**Founder and Admin** at *Orzlab*"
+
+contacts:
+  title: Get in Touch
+  subtitle: I'm always open to discussing research collaborations, project ideas, or just having a chat about AI and mathematics.
+  emails:
+    - label: Primary
+      address: phamdinhtrunghieu1103@gmail.com
+    - label: VGU
+      address: 104240027@student.vgu.edu.vn
+    - label: FrankUAS
+      address: dinh.pham@stud.fra-uas.de
+    - label: Orzlab
+      address: phamdinhtrunghieu1103@orzlab.net
+  socials:
+    - label: LinkedIn
+      url: https://www.linkedin.com/in/pham-dinh-trung-hieu
+      icon: linkedin
+    - label: Google Scholar
+      url: https://scholar.google.com/citations?user=1UNe69MAAAAJ
+      icon: scholar
+    - label: GitHub
+      url: https://github.com/hieupham1103
+      icon: github
+    - label: Orzlab
+      url: https://orzlab.net/
+      icon: link
+
+experience:
+  title: Working Experience
+  items:
+    - date: 2024 – Present
+      title: AI Research Assistant
+      company: Vietnamese-German University – VGU
+      url: https://vgu.edu.vn/
+      logo: /assets/img/logo/vgu.jpg
+      logo_alt: VGU logo
+      description: Conducting research on few-shot learning, vision-language models, and real-time computer vision systems.
+    - date: 2026 – Present
+      title: Computer Science Student
+      company: Frankfurt University of Applied Sciences
+      url: https://www.frankfurt-university.de/
+      logo: /assets/img/logo/frankuas.jpg
+      logo_alt: Frankfurt UAS logo
+      description: Participating in an academic exchange semester in Computer Science through the partnership between VGU and FrankUAS. Awarded the DAAD Scholarship to support academic studies and cultural exchange in Germany.
+    - date: May 2026 – Present
+      title: Vice President
+      company: VGU Robotics & Electronics Club – REC
+      url: https://www.facebook.com/vgu.rec
+      logo: /assets/img/logo/rec.jpg
+      logo_alt: REC logo
+      description: Coordinating technical projects and managing club activities. Mentoring members in robotics, electronics, and software development.
+    - date: 2024 – Present
+      title: Computer Science Student
+      company: Vietnamese-German University – VGU
+      url: https://vgu.edu.vn/
+      logo: /assets/img/logo/vgu.jpg
+      logo_alt: VGU logo
+    - date: Nov 2025 – May 2026
+      title: Technical Deputy
+      company: VGU Robotics & Electronics Club – REC
+      url: https://www.facebook.com/vgu.rec
+      logo: /assets/img/logo/rec.jpg
+      logo_alt: REC logo
+    - date: Oct 2024 – Nov 2025
+      title: Member
+      company: VGU Robotics & Electronics Club – REC
+      url: https://www.facebook.com/vgu.rec
+      logo: /assets/img/logo/rec.jpg
+      logo_alt: REC logo
+    - date: 2023 – Present
+      title: Founder & Content Creator
+      company: Orzlab
+      url: https://orzlab.net/
+      logo: /assets/img/logo/orzlab.png
+      logo_alt: Orzlab logo
+      description: Leading educational content creation focusing on AI, mathematics, and computer science. Bridging the gap between complex research and public understanding through visual demonstrations.
+    - date: 2021 – 2024
+      title: Student majoring in Informatics/Computer Science
+      company: Le Quy Don High School for the Gifted – Khanh Hoa
+      url: https://lqdon.khanhhoa.edu.vn/
+      logo: /assets/img/logo/lqd.png
+      logo_alt: Le Quy Don logo

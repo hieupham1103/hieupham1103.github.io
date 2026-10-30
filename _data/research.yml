@@ -1,0 +1,9 @@
+interests:
+  - title: Few-Shot Learning
+    description: Developing methods for learning from limited data samples.
+  - title: Vision-Language Models
+    description: Bridging computer vision and natural language processing.
+  - title: Real-time Computer Vision
+    description: Efficient algorithms for real-world deployment.
+  - title: Model Compression
+    description: Knowledge distillation and model optimization.
