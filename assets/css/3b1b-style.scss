@@ -2820,18 +2820,98 @@ footer { background: var(--ink); border: 0; margin-top: 0; padding: 44px 40px; }
 .footer-links a:hover { color: #fff; }
 
 @media (max-width: 768px) {
-    .nav-container { padding: 12px 20px 0; }
-    .nav-item { padding: 12px 10px 16px; }
+    .main-nav { overflow: hidden; }
+    .nav-container {
+        align-items: stretch;
+        height: auto;
+        padding: 12px 0 0;
+    }
+    .nav-brand {
+        align-self: flex-start;
+        font-size: 1.05rem;
+        margin: 0 24px 10px;
+    }
+    .nav-menu {
+        flex-shrink: 0;
+        gap: 20px;
+        height: 42px;
+        overflow-x: auto;
+        padding: 0 24px 8px;
+        scrollbar-width: none;
+        width: 100%;
+    }
+    .nav-item {
+        flex: 0 0 auto;
+        font-size: 0.76rem;
+        padding: 7px 0 12px;
+    }
+    .nav-item.active::after { bottom: 3px; left: 0; right: 0; }
     .hero-section, .about-intro, .experience-section, .contact-section { padding-left: 24px; padding-right: 24px; }
     .hero-content { align-items: flex-start; gap: 32px; }
     .profile-image { height: 170px; width: 170px; }
     .hero-title { font-size: 3.1rem; }
+    .page-header { padding: 46px 24px 36px; }
+    .page-header h1 { font-size: clamp(2.35rem, 11vw, 3.1rem); line-height: 1.02; }
     .page-header, .content { padding-left: 24px; padding-right: 24px; }
     .post-layout { padding: 32px 24px 56px; }
     .post-toc { border-left: 0; border-top: 1px solid var(--line); padding: 18px 0 0; }
-    .post-body table { display: block; overflow-x: auto; white-space: normal; }
     .timeline { padding-left: 36px; }
     .timeline::before { left: 5px; }
     .timeline-marker { left: -37px; }
     .post-navigation__link { max-width: 100%; }
+}
+
+@media (max-width: 640px) {
+    .post-body table.responsive-table,
+    .post-body table.responsive-table tbody,
+    .post-body table.responsive-table tr,
+    .post-body table.responsive-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .post-body table.responsive-table {
+        border-bottom: 1px solid var(--ink);
+        border-top: 2px solid var(--ink);
+        font-size: 0.92rem;
+        margin: 28px 0;
+        overflow: visible;
+    }
+
+    .post-body table.responsive-table thead {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+    }
+
+    .post-body table.responsive-table tr {
+        border-bottom: 1px solid var(--line);
+        padding: 10px 0;
+    }
+
+    .post-body table.responsive-table tr:last-child { border-bottom: 0; }
+
+    .post-body table.responsive-table td {
+        border: 0;
+        color: #454841;
+        padding: 7px 0;
+    }
+
+    .post-body table.responsive-table td + td { border-left: 0; }
+
+    .post-body table.responsive-table td::before {
+        color: var(--accent);
+        content: attr(data-label);
+        display: block;
+        font-family: 'DM Mono', monospace;
+        font-size: 0.66rem;
+        font-weight: 500;
+        letter-spacing: 0.07em;
+        margin-bottom: 3px;
+        text-transform: uppercase;
+    }
 }
