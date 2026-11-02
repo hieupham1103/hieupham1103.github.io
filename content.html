@@ -41,6 +41,9 @@ permalink: /content/
             {% assign latest_note = notes | first %}
             {% assign subject_slug = subject | slugify %}
             {% case subject %}
+                {% when 'Computer Networks' %}
+                    {% assign subject_description = 'Communication patterns, network structure, and the protocols behind the Internet.' %}
+                    {% assign subject_index = '05' %}
                 {% when 'Data Structures and Algorithms' %}
                     {% assign subject_description = 'Core data structures, algorithmic patterns, and ways to reason about performance.' %}
                     {% assign subject_index = '01' %}
