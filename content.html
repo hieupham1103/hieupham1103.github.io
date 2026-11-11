@@ -41,6 +41,9 @@ permalink: /content/
             {% assign latest_note = notes | first %}
             {% assign subject_slug = subject | slugify %}
             {% case subject %}
+                {% when 'Databases' %}
+                    {% assign subject_description = 'Relational data, query languages, and the principles behind database systems.' %}
+                    {% assign subject_index = '06' %}
                 {% when 'Computer Networks' %}
                     {% assign subject_description = 'Communication patterns, network structure, and the protocols behind the Internet.' %}
                     {% assign subject_index = '05' %}
